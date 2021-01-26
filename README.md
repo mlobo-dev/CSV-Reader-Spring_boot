@@ -10,6 +10,6 @@
 
 #Acces API Documentation
 
-After starting the application, it will be available at <b>http://localhost:8080/swagger-ui.html</> and you can test it right here.
+After starting the application, it will be available at http://localhost:8080/swagger-ui.htmland you can test it right here.
 
 ![](https://live.staticflickr.com/65535/50877802281_1c0a8b313e_o_d.png)
