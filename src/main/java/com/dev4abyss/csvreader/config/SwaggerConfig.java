@@ -29,14 +29,14 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "NEWS API",
+                "CSV Reader REST API",
                 "This api will be used for rest requisitions.",
                 "Versão beta-1.0",
                 "",
-                new Contact("Devs4Abyss", "", ""),
+                new Contact("Márcio Lôbo", "https://github.com/mlobo-dev", "mlobo.dev@gmail.com"),
                 "",
                 "",
-                Collections.emptyList() // Vendor Extensions
+                Collections.emptyList()
         );
     }
 }

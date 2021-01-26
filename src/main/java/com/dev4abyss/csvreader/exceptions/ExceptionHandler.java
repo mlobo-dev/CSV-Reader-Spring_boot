@@ -17,9 +17,9 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
     @org.springframework.web.bind.annotation.ExceptionHandler(FileProcessingException.class)
     public ResponseEntity<StandardError> fileProcessingException(FileProcessingException e, HttpServletRequest request) {
 
-        StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.NOT_FOUND.value(),
-                "Não encontrado", e.getMessage(), request.getRequestURI());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
+        StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.UNPROCESSABLE_ENTITY.value(),
+                "Wrong file", e.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(err);
     }
 
 

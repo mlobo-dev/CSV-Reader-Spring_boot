@@ -14,14 +14,15 @@ import java.util.List;
 @Service
 public class CSVReaderService {
 
-    public List<PersonDTO> readCSVFile(MultipartFile file) {
+    public List<PersonDTO> readCSVFile(MultipartFile file, String separator) {
         List<PersonDTO> persons = new ArrayList<>();
+        separator = separator == null || separator.equals(" ") ? "," : separator;
         try {
             String line;
             BufferedReader conteudoCSV = new BufferedReader(new InputStreamReader(file.getInputStream()));
 
             while ((line = conteudoCSV.readLine()) != null) {
-                String[] data = line.split(";");
+                String[] data = line.split(separator);
                 persons.add(PersonDTO.builder()
                         .name(data[0] != null ? data[0] : "")
                         .phone(data[1] != null ? data[1] : "")
@@ -31,7 +32,7 @@ public class CSVReaderService {
                 );
             }
 
-        } catch (IOException e) {
+        } catch (IOException | ArrayIndexOutOfBoundsException e) {
             throw new FileProcessingException("Error processing file: " + e.getMessage());
         }
 
